@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.assas
+package tech.wgtecnologia.payment
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication

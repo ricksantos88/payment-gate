@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.assas
+package tech.wgtecnologia.payment
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
