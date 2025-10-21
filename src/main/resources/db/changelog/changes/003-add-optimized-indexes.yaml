@@ -1,0 +1,38 @@
+databaseChangeLog:
+  - changeSet:
+      id: 003-add-optimized-indexes
+      author: payment-service
+      changes:
+        - createIndex:
+            tableName: customers
+            indexName: idx_customers_created_at
+            columns:
+              - column:
+                  name: created_at
+                  descending: true
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_created_at
+            columns:
+              - column:
+                  name: created_at
+                  descending: true
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_customer_status
+            columns:
+              - column:
+                  name: customer_id
+              - column:
+                  name: status
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_due_date_status
+            columns:
+              - column:
+                  name: due_date
+              - column:
+                  name: status

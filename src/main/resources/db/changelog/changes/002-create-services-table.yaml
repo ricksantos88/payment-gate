@@ -1,0 +1,107 @@
+databaseChangeLog:
+  - changeSet:
+      id: 002-create-services-table
+      author: payment-service
+      changes:
+        - createTable:
+            tableName: services
+            columns:
+              - column:
+                  name: id
+                  type: VARCHAR(36)
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: description
+                  type: TEXT
+              - column:
+                  name: value
+                  type: DECIMAL(10,2)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: recurrence
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: due_date
+                  type: DATE
+                  constraints:
+                    nullable: false
+              - column:
+                  name: metadata
+                  type: JSON
+              - column:
+                  name: status
+                  type: VARCHAR(20)
+                  constraints:
+                    nullable: false
+              - column:
+                  name: customer_id
+                  type: VARCHAR(36)
+                  constraints:
+                    nullable: false
+                    foreignKeyName: fk_services_customer_id
+                    references: customers(id)
+              - column:
+                  name: external_id
+                  type: VARCHAR(255)
+              - column:
+                  name: created_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+              - column:
+                  name: updated_at
+                  type: TIMESTAMP
+                  constraints:
+                    nullable: false
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_customer_id
+            columns:
+              - column:
+                  name: customer_id
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_external_id
+            columns:
+              - column:
+                  name: external_id
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_status
+            columns:
+              - column:
+                  name: status
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_due_date
+            columns:
+              - column:
+                  name: due_date
+
+        - createIndex:
+            tableName: services
+            indexName: idx_services_recurrence
+            columns:
+              - column:
+                  name: recurrence
+
+#        - addForeignKeyConstraint:
+#            baseTableName: services
+#            baseColumnNames: customer_id
+#            constraintName: fk_services_customer_id
+#            referencedTableName: customers
+#            referencedColumnNames: id

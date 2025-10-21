@@ -1,3 +1,10 @@
 databaseChangeLog:
-  - includeAll:
-      path: db/changelog/changes/
+  - include:
+      file: changes/001-create-customers-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/002-create-services-table.yaml
+      relativeToChangelogFile: true
+  - include:
+      file: changes/003-add-optimized-indexes.yaml
+      relativeToChangelogFile: true
