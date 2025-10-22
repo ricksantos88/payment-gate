@@ -7,7 +7,7 @@ plugins {
     kotlin("plugin.allopen") version "1.9.23"
 }
 
-group = "tech.wgtecnologia.gateway"
+group = "tech.wgtecnologia.payment"
 version = "0.0.1-SNAPSHOT"
 description = "Payment Service API"
 

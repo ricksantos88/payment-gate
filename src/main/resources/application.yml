@@ -28,6 +28,13 @@ app:
     secret: "${JWT_SECRET:change_this_secret_in_env}" # use @Value nas classes
     expiration-ms: 900000      # 15 min
     refresh-expiration-ms: 2592000000 # 30 dias
+  integration:
+    asaas:
+      enabled: true
+asaas:
+  base-url: https://api-sandbox.asaas.com/v3
+  api-key: ${ASAAS_API_KEY}
+  timeout: 10000
 
 server:
   port: 8080
