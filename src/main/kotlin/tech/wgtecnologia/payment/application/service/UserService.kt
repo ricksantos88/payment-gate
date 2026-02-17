@@ -18,7 +18,7 @@ class UserService(
     private val userRepository: UserPort,
     private val passwordEncoder: PasswordEncoder,
     private val roleService: RoleService,
-    @Value("\${app.create-admin-user-permitted}") private val createUserAdminPermitted: Boolean = true
+    @param:Value("\${app.create-admin-user-permitted}") private val createUserAdminPermitted: Boolean = true
 ) {
 
     fun findByUsername(username: String): User? {
