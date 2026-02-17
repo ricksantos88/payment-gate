@@ -15,7 +15,6 @@ class UserPortImpl(
     override fun findByUsername(username: String): User? =
         userRepository.findByUsername(username)
 
-    // TODO: implements custom exception handling
     override fun findByEmail(email: String): User =
         userRepository.findByEmail(email) ?: throw UserByEmailNotFoundException("user under -$email- not found")
 

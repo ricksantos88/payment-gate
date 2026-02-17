@@ -17,9 +17,9 @@ class InitialDataConfig {
     fun createInitialAdmin(userService: UserService, env: Environment): CommandLineRunner {
         return CommandLineRunner {
             try {
-                val adminUsername = env.getProperty("app.admin.username", "admin")
-                val adminEmail = env.getProperty("app.admin.email", "admin@example.com")
-                val adminPassword = env.getProperty("app.admin.password", "admin123")
+                val adminUsername = env.getProperty("app.admin.username")!!
+                val adminEmail = env.getProperty("app.admin.email")!!
+                val adminPassword = env.getProperty("app.admin.password")!!
 
                 val existingAdmin = userService.findByUsername(adminUsername)
                 if (existingAdmin == null) {

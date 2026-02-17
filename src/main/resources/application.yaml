@@ -29,6 +29,7 @@ jwt:
 
 app:
   create-admin-user-permitted: false
+  ## TODO: Change the default admin credentials to env variables or secure vault in production
   admin:
     username: "admin"
     email: "admin@example.com"

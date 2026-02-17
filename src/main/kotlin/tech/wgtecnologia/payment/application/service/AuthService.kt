@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service
 import tech.wgtecnologia.payment.application.dto.AuthResponse
 import tech.wgtecnologia.payment.application.dto.RefreshTokenRequest
 import tech.wgtecnologia.payment.application.dto.RegisterRequest
+import tech.wgtecnologia.payment.application.exception.UserByUsernameNotFoundException
 import tech.wgtecnologia.payment.infrastructure.security.DatabaseUserDetailsService
 import tech.wgtecnologia.payment.infrastructure.security.JwtService
 
@@ -24,9 +25,8 @@ class AuthService(
             password
         )
 
-        // TODO: create specific exception handling
-        val user = userService.findByUsername(username) ?: throw IllegalArgumentException("User not found")
-        val userDetails = customUserDetailsService.loadUserByUsername(username)
+        val user = userService.findByUsername(username) ?: throw UserByUsernameNotFoundException("User not found")
+        val userDetails = customUserDetailsService.loadUserByUsername(user.username)
         val accessToken = jwtService.generateToken(userDetails)
         val refreshToken = jwtService.generateRefreshToken(userDetails)
 
@@ -55,7 +55,7 @@ class AuthService(
         val refreshToken = request.refreshToken
         val username = jwtService.extractUsername(refreshToken)
 
-        if (username != null) {
+        if (username.isNotBlank()) {
             val userDetails = customUserDetailsService.loadUserByUsername(username)
             if (jwtService.isTokenValid(refreshToken, userDetails)) {
                 val accessToken = jwtService.generateToken(userDetails)
@@ -68,6 +68,7 @@ class AuthService(
                 )
             }
         }
+        // TODO: Create a specific exception for invalid refresh tokens
         throw IllegalArgumentException("Invalid refresh token")
     }
 
