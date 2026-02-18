@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.application.service
+package tech.wgtecnologia.payment.application.service.impl
 
 import org.springframework.stereotype.Service
 import tech.wgtecnologia.payment.domain.model.Role

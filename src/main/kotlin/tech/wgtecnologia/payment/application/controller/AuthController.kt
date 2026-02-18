@@ -9,7 +9,7 @@ import tech.wgtecnologia.payment.application.dto.AuthRequest
 import tech.wgtecnologia.payment.application.dto.AuthResponse
 import tech.wgtecnologia.payment.application.dto.RefreshTokenRequest
 import tech.wgtecnologia.payment.application.dto.RegisterRequest
-import tech.wgtecnologia.payment.application.service.AuthService
+import tech.wgtecnologia.payment.application.service.impl.AuthService
 
 @RestController
 @RequestMapping("/api/auth")

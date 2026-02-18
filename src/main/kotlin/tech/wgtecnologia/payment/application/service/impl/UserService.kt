@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.application.service
+package tech.wgtecnologia.payment.application.service.impl
 
 import org.springframework.beans.factory.annotation.Value
 import org.springframework.security.crypto.password.PasswordEncoder
