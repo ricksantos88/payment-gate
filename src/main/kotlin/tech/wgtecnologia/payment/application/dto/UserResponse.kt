@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.application.controller.response
+package tech.wgtecnologia.payment.application.dto
 
 import java.util.UUID
 
