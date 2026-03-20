@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 import org.springframework.core.env.Environment
 import tech.wgtecnologia.payment.application.dto.RegisterRequest
-import tech.wgtecnologia.payment.application.service.UserService
+import tech.wgtecnologia.payment.application.service.impl.UserService
 
 @Configuration
 class InitialDataConfig {

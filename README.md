@@ -36,6 +36,14 @@ Pontos importantes
 - Endpoints e detalhes da API podem ser encontrados nos controllers do diretório `src/main/kotlin`.
 - Tokens JWT e autenticação estão implementados nos serviços de segurança (veja `infrastructure/security`).
 
+## 🤖 AI Guidelines
+
+Este projeto segue padrões definidos em:
+
+👉 docs/ai/STYLE_GUIDE.md
+
+Todas as implementações devem respeitar TDD, Clean Code e Clean Architecture.
+
 Contribuindo
 
 Fork, crie uma branch com a feature/bugfix e abra um pull request.

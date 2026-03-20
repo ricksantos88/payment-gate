@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 import tech.wgtecnologia.payment.application.dto.RegisterRequest
-import tech.wgtecnologia.payment.application.service.UserService
+import tech.wgtecnologia.payment.application.service.impl.UserService
 
 @RestController
 @RequestMapping("/api/admin")
