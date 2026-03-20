@@ -2,9 +2,9 @@ package tech.wgtecnologia.payment.infrastructure.persistence.repository.impl
 
 import org.springframework.stereotype.Repository
 import tech.wgtecnologia.payment.domain.model.User
-import tech.wgtecnologia.payment.infrastructure.persistence.repository.jpa.UserJpaRepository
+import tech.wgtecnologia.payment.domain.repository.UserRepository
 import tech.wgtecnologia.payment.infrastructure.persistence.mapper.UserMapper
-import tech.wgtecnologia.payment.infrastructure.persistence.repository.UserRepository
+import tech.wgtecnologia.payment.infrastructure.persistence.repository.jpa.UserJpaRepository
 import java.util.*
 
 @Repository

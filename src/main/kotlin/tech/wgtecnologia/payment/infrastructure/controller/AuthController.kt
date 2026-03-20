@@ -1,4 +1,4 @@
-package tech.wgtecnologia.payment.application.controller
+package tech.wgtecnologia.payment.infrastructure.controller
 
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.tags.Tag
@@ -9,7 +9,7 @@ import tech.wgtecnologia.payment.application.dto.AuthRequest
 import tech.wgtecnologia.payment.application.dto.AuthResponse
 import tech.wgtecnologia.payment.application.dto.RefreshTokenRequest
 import tech.wgtecnologia.payment.application.dto.RegisterRequest
-import tech.wgtecnologia.payment.application.service.impl.AuthService
+import tech.wgtecnologia.payment.infrastructure.service.AuthService
 
 @RestController
 @RequestMapping("/api/auth")
@@ -28,7 +28,7 @@ class AuthController(
     @PostMapping("/register")
     @Operation(summary = "Register new user")
     fun register(@Valid @RequestBody request: RegisterRequest): ResponseEntity<AuthResponse> {
-        val response = authService.register(request)
+        val response = authService.register(request.username, request.email, request.password)
         return ResponseEntity.ok(response)
     }
 
